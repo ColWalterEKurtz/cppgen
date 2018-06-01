@@ -5,7 +5,7 @@
  * @file
  * @brief      This file holds the implementation of the SrcDoxyfile class.
  * @author     Col. Walter E. Kurtz
- * @version    2018-05-03
+ * @version    2018-06-01
  * @copyright  GNU General Public License - Version 3.0
  */
 
@@ -208,7 +208,7 @@ void SrcDoxyfile::printLines(ofstream& target) const
   target << "RECURSIVE              = NO" << endl;
   target << "EXCLUDE                =" << endl;
   target << "EXCLUDE_SYMLINKS       = NO" << endl;
-  target << "EXCLUDE_PATTERNS       =" << endl;
+  target << "EXCLUDE_PATTERNS       = *.d" << endl;
   target << "EXCLUDE_SYMBOLS        =" << endl;
   target << "EXAMPLE_PATH           =" << endl;
   target << "EXAMPLE_PATTERNS       =" << endl;
