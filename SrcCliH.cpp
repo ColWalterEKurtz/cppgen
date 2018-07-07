@@ -5,7 +5,7 @@
  * @file
  * @brief      This file holds the implementation of the SrcCliH class.
  * @author     Col. Walter E. Kurtz
- * @version    2018-05-03
+ * @version    2018-07-07
  * @copyright  GNU General Public License - Version 3.0
  */
 
@@ -59,7 +59,7 @@ void SrcCliH::printLines(ofstream& target) const
   target << endl;
   target << "public:" << endl;
   target << endl;
-  printLongFrame(target, "Settings", 1);
+  printLongFrame(target, "Settings", 2);
   target << endl;
   target << "  // operations that are mutually exclusive" << endl;
   target << "  enum" << endl;
@@ -74,7 +74,7 @@ void SrcCliH::printLines(ofstream& target) const
   target << "  std::vector< std::string > pparams;" << endl;
   target << endl;
   target << endl;
-  printLongFrame(target, "Construction", 1);
+  printLongFrame(target, "Construction", 2);
   target << endl;
   target << "  // ---" << endl;
   target << "  // cli" << endl;
@@ -85,7 +85,7 @@ void SrcCliH::printLines(ofstream& target) const
   target << "  cli();" << endl;
   target << endl;
   target << endl;
-  printLongFrame(target, "Handling", 1);
+  printLongFrame(target, "Handling", 2);
   target << endl;
   target << "  // -----" << endl;
   target << "  // parse" << endl;
@@ -108,7 +108,7 @@ void SrcCliH::printLines(ofstream& target) const
   target << endl;
   target << "protected:" << endl;
   target << endl;
-  printLongFrame(target, "Internal methods", 1);
+  printLongFrame(target, "Internal methods", 2);
   target << endl;
   target << "  // -----" << endl;
   target << "  // reset" << endl;
@@ -129,7 +129,7 @@ void SrcCliH::printLines(ofstream& target) const
   target << endl;
   target << "private:" << endl;
   target << endl;
-  printLongFrame(target, "Attributes", 1);
+  printLongFrame(target, "Attributes", 2);
   target << endl;
   target << "  /// the executable's name" << endl;
   target << "  std::string m_argv0;" << endl;
