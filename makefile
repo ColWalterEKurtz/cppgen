@@ -1,31 +1,47 @@
-RM      = rm
-CC      = g++
-CFLAGS  = -ansi -pedantic -Wall -O2
-SOURCES = $(shell find -maxdepth 1 -type f -name "*.cpp")
-OBJECTS = $(patsubst %.cpp,%.o,$(SOURCES))
-DPFILES = $(patsubst %.cpp,%.d,$(SOURCES))
-PROJECT = cppgen
+# GNU General Public License - Version 3.0
 
-.PHONY: all clean
+CC      := g++
+CFLAGS  := --std=c++14 -pedantic -Wall -O2
+HEADERS := $(shell find -maxdepth 1 -type f -name "*.h")
+SOURCES := $(shell find -maxdepth 1 -type f -name "*.cpp")
+OBJECTS := $(patsubst %.cpp,%.o,$(SOURCES))
+DPFILES := $(patsubst %.cpp,%.d,$(SOURCES))
+PROJECT := cppgen
+DOXYGEN := doc/html/index.html
 
-# Default-Target
-all: $(PROJECT)
+# set default target
+.DEFAULT_GOAL = $(PROJECT)
 
-# Abhaengigkeiten der Objekt-Dateien importieren
+# set phony targets
+.PHONY: all doc clean
+
+# create binary and documentation
+all: $(PROJECT) $(DOXYGEN)
+
+# create documentation
+doc: $(DOXYGEN)
+
+# remove producible files
+clean:
+	@rm -f $(OBJECTS) $(DPFILES) $(PROJECT)
+	@rm -rf doc/
+
+# import dependencies (create if missing)
 -include $(DPFILES)
 
-# Abhaengigkeiten der Objekt-Dateien generieren
+# spot dependencies
 $(DPFILES): %.d: %.cpp
 	$(CC) -MM -o $@ $<
 
-# Objekt-Dateien linken
+# link object files
 $(PROJECT): $(OBJECTS)
 	$(CC) -o $(PROJECT) $+
-	
-# Objekt-Dateien kompilieren
+
+# compile source code
 $(OBJECTS): %.o: %.cpp %.d
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-# Dateien loeschen, die auch erzeugt werden koennen
-clean:
-	@$(RM) $(OBJECTS) $(DPFILES) $(PROJECT)
+# create documentation
+$(DOXYGEN): $(HEADERS) $(SOURCES)
+	@doxygen $(PROJECT).doxyfile
+

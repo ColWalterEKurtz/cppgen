@@ -5,7 +5,7 @@
  * @file
  * @brief      This file holds the main() function and doxygen's main page.
  * @author     Col. Walter E. Kurtz
- * @version    2018-05-03
+ * @version    2019-01-14
  * @copyright  GNU General Public License - Version 3.0
  *
  * @mainpage
