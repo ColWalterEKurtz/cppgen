@@ -103,7 +103,7 @@ string SrcDoxyfile::getVersion() const
  */
 void SrcDoxyfile::printLines(ofstream& target) const
 {
-  target << "# Doxyfile 1.8.6" << endl;
+  target << "# Doxyfile 1.8.11" << endl;
   target << endl;
   target << "#---------------------------------------------------------------------------" << endl;
   target << "# Project related configuration options" << endl;
@@ -115,6 +115,7 @@ void SrcDoxyfile::printLines(ofstream& target) const
   target << "PROJECT_LOGO           =" << endl;
   target << "OUTPUT_DIRECTORY       = \"doc\"" << endl;
   target << "CREATE_SUBDIRS         = NO" << endl;
+  target << "ALLOW_UNICODE_NAMES    = NO" << endl;
   target << "OUTPUT_LANGUAGE        = English" << endl;
   target << "BRIEF_MEMBER_DESC      = YES" << endl;
   target << "REPEAT_BRIEF           = YES" << endl;
@@ -145,6 +146,7 @@ void SrcDoxyfile::printLines(ofstream& target) const
   target << "SIP_SUPPORT            = NO" << endl;
   target << "IDL_PROPERTY_SUPPORT   = YES" << endl;
   target << "DISTRIBUTE_GROUP_DOC   = NO" << endl;
+  target << "GROUP_NESTED_COMPOUNDS = NO" << endl;
   target << "SUBGROUPING            = YES" << endl;
   target << "INLINE_GROUPED_CLASSES = NO" << endl;
   target << "INLINE_SIMPLE_STRUCTS  = NO" << endl;
@@ -167,6 +169,7 @@ void SrcDoxyfile::printLines(ofstream& target) const
   target << "INTERNAL_DOCS          = NO" << endl;
   target << "CASE_SENSE_NAMES       = YES" << endl;
   target << "HIDE_SCOPE_NAMES       = NO" << endl;
+  target << "HIDE_COMPOUND_REFERENCE= NO" << endl;
   target << "SHOW_INCLUDE_FILES     = YES" << endl;
   target << "SHOW_GROUPED_MEMB_INC  = YES" << endl;
   target << "FORCE_LOCAL_INCLUDES   = YES" << endl;
@@ -197,6 +200,7 @@ void SrcDoxyfile::printLines(ofstream& target) const
   target << "WARN_IF_UNDOCUMENTED   = YES" << endl;
   target << "WARN_IF_DOC_ERROR      = YES" << endl;
   target << "WARN_NO_PARAMDOC       = YES" << endl;
+  target << "WARN_AS_ERROR          = NO" << endl;
   target << "WARN_FORMAT            = \"$file:$line: $text\"" << endl;
   target << "WARN_LOGFILE           =" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
@@ -231,6 +235,8 @@ void SrcDoxyfile::printLines(ofstream& target) const
   target << "SOURCE_TOOLTIPS        = YES" << endl;
   target << "USE_HTAGS              = NO" << endl;
   target << "VERBATIM_HEADERS       = YES" << endl;
+  target << "CLANG_ASSISTED_PARSING = NO" << endl;
+  target << "CLANG_OPTIONS          =" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
   target << "# Configuration options related to the alphabetical class index" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
@@ -307,6 +313,7 @@ void SrcDoxyfile::printLines(ofstream& target) const
   target << "EXTRA_PACKAGES         = amsmath" << endl;
   target << "LATEX_HEADER           =" << endl;
   target << "LATEX_FOOTER           =" << endl;
+  target << "LATEX_EXTRA_STYLESHEET =" << endl;
   target << "LATEX_EXTRA_FILES      =" << endl;
   target << "PDF_HYPERLINKS         = YES" << endl;
   target << "USE_PDFLATEX           = YES" << endl;
@@ -314,6 +321,7 @@ void SrcDoxyfile::printLines(ofstream& target) const
   target << "LATEX_HIDE_INDICES     = NO" << endl;
   target << "LATEX_SOURCE_CODE      = NO" << endl;
   target << "LATEX_BIB_STYLE        = plain" << endl;
+  target << "LATEX_TIMESTAMP        = NO" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
   target << "# Configuration options related to the RTF output" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
@@ -323,26 +331,27 @@ void SrcDoxyfile::printLines(ofstream& target) const
   target << "RTF_HYPERLINKS         = NO" << endl;
   target << "RTF_STYLESHEET_FILE    =" << endl;
   target << "RTF_EXTENSIONS_FILE    =" << endl;
+  target << "RTF_SOURCE_CODE        = NO" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
   target << "# Configuration options related to the man page output" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
   target << "GENERATE_MAN           = NO" << endl;
   target << "MAN_OUTPUT             = man" << endl;
   target << "MAN_EXTENSION          = .3" << endl;
+  target << "MAN_SUBDIR             =" << endl;
   target << "MAN_LINKS              = NO" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
   target << "# Configuration options related to the XML output" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
   target << "GENERATE_XML           = NO" << endl;
   target << "XML_OUTPUT             = xml" << endl;
-  target << "XML_SCHEMA             =" << endl;
-  target << "XML_DTD                =" << endl;
   target << "XML_PROGRAMLISTING     = YES" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
   target << "# Configuration options related to the DOCBOOK output" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
   target << "GENERATE_DOCBOOK       = NO" << endl;
   target << "DOCBOOK_OUTPUT         = docbook" << endl;
+  target << "DOCBOOK_PROGRAMLISTING = NO" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
   target << "# Configuration options for the AutoGen Definitions output" << endl;
   target << "#---------------------------------------------------------------------------" << endl;
@@ -405,6 +414,8 @@ void SrcDoxyfile::printLines(ofstream& target) const
   target << "DOTFILE_DIRS           =" << endl;
   target << "MSCFILE_DIRS           =" << endl;
   target << "DIAFILE_DIRS           =" << endl;
+  target << "PLANTUML_JAR_PATH      =" << endl;
+  target << "PLANTUML_INCLUDE_PATH  =" << endl;
   target << "DOT_GRAPH_MAX_NODES    = 50" << endl;
   target << "MAX_DOT_GRAPH_DEPTH    = 0" << endl;
   target << "DOT_TRANSPARENT        = NO" << endl;
