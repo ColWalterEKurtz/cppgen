@@ -106,8 +106,8 @@ void SrcMakefile::printLines(ofstream& target) const
   target << endl;
   target << "# remove producible files" << endl;
   target << "clean:" << endl;
-  target << "\t@rm -f *.d *.o $(PROJECT)" << endl;
-  target << "\t@rm -rf doc/" << endl;
+  target << "\trm -f *.d *.o $(PROJECT)" << endl;
+  target << "\trm -rf doc/" << endl;
   target << endl;
   target << "# import dependencies (create if missing)" << endl;
   target << "ifneq ($(MAKECMDGOALS),clean)" << endl;
