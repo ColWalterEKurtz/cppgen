@@ -5,7 +5,7 @@
  * @file
  * @brief      This file holds the implementation of the SrcMakefile class.
  * @author     Col. Walter E. Kurtz
- * @version    2019-01-14
+ * @version    2019-08-04
  * @copyright  GNU General Public License - Version 3.0
  */
 
@@ -106,15 +106,17 @@ void SrcMakefile::printLines(ofstream& target) const
   target << endl;
   target << "# remove producible files" << endl;
   target << "clean:" << endl;
-  target << "\t@rm -f $(OBJECTS) $(DPFILES) $(PROJECT)" << endl;
+  target << "\t@rm -f *.d *.o $(PROJECT)" << endl;
   target << "\t@rm -rf doc/" << endl;
   target << endl;
   target << "# import dependencies (create if missing)" << endl;
+  target << "ifneq ($(MAKECMDGOALS),clean)" << endl;
   target << "-include $(DPFILES)" << endl;
+  target << "endif" << endl;
   target << endl;
   target << "# spot dependencies" << endl;
   target << "$(DPFILES): %.d: %.cpp" << endl;
-  target << "\t$(CC) -MM -o $@ $<" << endl;
+  target << "\t$(CC) -MM $(CFLAGS) -o $@ $<" << endl;
   target << endl;
   target << "# link object files" << endl;
   target << "$(PROJECT): $(OBJECTS)" << endl;
