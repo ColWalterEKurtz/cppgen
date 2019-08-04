@@ -97,6 +97,7 @@ void SrcMainCpp::printLines(ofstream& target) const
   target << "// #include <deque>" << endl;
   target << "// #include <set>" << endl;
   target << "// #include <map>" << endl;
+  target << "// #include <random>" << endl;
   target << "// #include <algorithm>" << endl;
   target << "// #include <string>" << endl;
   target << "// #include <sstream>" << endl;
