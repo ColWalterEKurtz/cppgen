@@ -110,8 +110,10 @@ void SrcMakefile::printLines(ofstream& target) const
   target << "\trm -rf doc/" << endl;
   target << endl;
   target << "# import dependencies (create if missing)" << endl;
+  target << "ifneq ($(MAKECMDGOALS),doc)" << endl;
   target << "ifneq ($(MAKECMDGOALS),clean)" << endl;
   target << "-include $(DPFILES)" << endl;
+  target << "endif" << endl;
   target << "endif" << endl;
   target << endl;
   target << "# spot dependencies" << endl;

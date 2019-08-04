@@ -23,15 +23,19 @@ doc: $(DOXYGEN)
 
 # remove producible files
 clean:
-	@rm -f $(OBJECTS) $(DPFILES) $(PROJECT)
-	@rm -rf doc/
+	rm -f *.d *.o $(PROJECT)
+	rm -rf doc/
 
 # import dependencies (create if missing)
+ifneq ($(MAKECMDGOALS),doc)
+ifneq ($(MAKECMDGOALS),clean)
 -include $(DPFILES)
+endif
+endif
 
 # spot dependencies
 $(DPFILES): %.d: %.cpp
-	$(CC) -MM -o $@ $<
+	$(CC) -MM $(CFLAGS) -o $@ $<
 
 # link object files
 $(PROJECT): $(OBJECTS)
