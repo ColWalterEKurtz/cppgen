@@ -5,7 +5,7 @@
  * @file
  * @brief      This file holds the implementation of the SrcClassImplementation class.
  * @author     Col. Walter E. Kurtz
- * @version    2018-05-03
+ * @version    2019-08-12
  * @copyright  GNU General Public License - Version 3.0
  */
 
@@ -119,6 +119,7 @@ void SrcClassImplementation::printLines(ofstream& target) const
   target << "// #include <deque>" << endl;
   target << "// #include <set>" << endl;
   target << "// #include <map>" << endl;
+  target << "// #include <memory>" << endl;
   target << "// #include <random>" << endl;
   target << "// #include <algorithm>" << endl;
   target << "// #include <string>" << endl;
